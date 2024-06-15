@@ -5,7 +5,7 @@ jobs:
   slackware-job:
     runs-on: ubuntu-latest
     container:
-      image: spaceinvaderone/auto_slack_pack
+      image: ghcr.io/aclemons/slackware:current
 
     steps:
     - name: Update and install packages
