@@ -1,13 +1,6 @@
 name: Run in Slackware Container
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+  workflow_dispatch:
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
@@ -15,9 +8,6 @@ jobs:
       image: spaceinvaderone/auto_slack_pack
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
     - name: Update and install packages
       run: |
         slackpkg update
