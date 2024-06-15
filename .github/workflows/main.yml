@@ -12,7 +12,7 @@ jobs:
   slackware-job:
     runs-on: ubuntu-latest
     container:
-      image: slackware/slackware:latest
+      image: spaceinvaderone/auto_slack_pack
 
     steps:
     - name: Checkout code
