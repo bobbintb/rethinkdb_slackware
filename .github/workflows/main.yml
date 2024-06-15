@@ -1,0 +1,28 @@
+name: Run in Slackware Container
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  slackware-job:
+    runs-on: ubuntu-latest
+    container:
+      image: slackware/slackware:latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Update and install packages
+      run: |
+        slackpkg update
+        slackpkg install <your-packages>
+        slackpkg clean-system
+
+    - name: Run your command
+      run: ls
