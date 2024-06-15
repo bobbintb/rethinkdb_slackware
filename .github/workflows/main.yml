@@ -11,8 +11,5 @@ jobs:
     - name: Update and install packages
       run: |
         slackpkg update <<< y
-        //slackpkg install <your-packages>
-        //slackpkg clean-system
-
     - name: Run your command
       run: ls
