@@ -11,7 +11,7 @@ jobs:
     - name: Update and install packages
       run: |
         slackpkg update <<< y
-        slackpkg install git
+        slackpkg install nghttp2 git
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
         ./configure --allow-fetch
