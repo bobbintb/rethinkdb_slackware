@@ -11,5 +11,10 @@ jobs:
     - name: Update and install packages
       run: |
         slackpkg update <<< y
+        git clone https://github.com/rethinkdb/rethinkdb.git
+        cd rethinkdb
+        ./configure --allow-fetch
+        make
+        
     - name: Run your command
       run: ls
