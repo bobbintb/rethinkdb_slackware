@@ -52,7 +52,7 @@ jobs:
         cd rethinkdb
         find / -name libstdc++*
         env
-        ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=gcc
+        ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=gcc --lib-path=/usr/lib64/
         which cpp
         echo $PATH
         make
