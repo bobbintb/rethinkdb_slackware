@@ -15,7 +15,7 @@ jobs:
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
-        slackpkg install gcc dcron expat zlib libssh2 cyrus-sasl openssl libidn gdbm openldap-client nghttp2 brotli curl ca-certificates git
+        slackpkg install aaa_libraries gcc dcron expat zlib libssh2 cyrus-sasl openssl libidn gdbm openldap-client nghttp2 brotli curl ca-certificates git
         update-ca-certificates
         git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
         git config --global http.sslBackend openssl
