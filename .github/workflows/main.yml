@@ -51,6 +51,7 @@ jobs:
         ./configure --allow-fetch PYTHON=/usr/bin/python3 CPP=/usr/bin/cpp
         env
         which cpp
+        echo $PATH
         make
         
     - name: Run your command
