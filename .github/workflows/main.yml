@@ -49,8 +49,8 @@ jobs:
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
         ./configure --allow-fetch PYTHON=/usr/bin/python3
-        whoami
-        ls -ld /etc/ssl/certs
+        env
+        which cpp
         make
         
     - name: Run your command
