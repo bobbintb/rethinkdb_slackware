@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
-        uses: dmvict/clean-workflow-runs@v1.2.2
+        uses: dmvict/clean-workflow-runs@v1
         with:
           token: ${{ github.token }}
           repo: bobbintb/slackware_packages
           run_conclusions: |
-            failed
+            failure
