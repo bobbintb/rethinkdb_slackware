@@ -11,7 +11,8 @@ jobs:
     - name: Update and install packages
       run: |
         slackpkg update <<< y
-        slackpkg install nghttp2 brotli sasl cryptopp git
+        slackpkg install nghttp2 brotli sasl openssl git
+        git config --global http.sslBackend "openssl"
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
         ./configure --allow-fetch
