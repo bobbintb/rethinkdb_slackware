@@ -16,6 +16,7 @@ jobs:
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
         slackpkg install openssl nghttp2 brotli sasl ca-certificates curl git
+        which run-parts
         update-ca-certificates
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
