@@ -1,0 +1,12 @@
+name: Run in Slackware Container
+on:
+  workflow_dispatch:
+jobs:
+  delete_runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete workflow runs
+        uses: dmvict/clean-workflow-runs@v1.0.0
+        with:
+          run_conclusions: |
+            failed
