@@ -49,6 +49,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
+        export CXXFLAGS="-std=c++11"
         env
         ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=gcc
         which cpp
