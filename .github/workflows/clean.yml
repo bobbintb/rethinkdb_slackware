@@ -1,4 +1,4 @@
-name: Run in Slackware Container
+name: Delete failed runs
 on:
   workflow_dispatch:
 jobs:
