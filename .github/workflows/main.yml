@@ -14,6 +14,7 @@ jobs:
         sed -i "s/^DIALOG=.*/DIALOG=off/" "$CONF_FILE"
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
+        find / -name run-parts
         slackpkg update <<< y
         slackpkg install expat zlib libssh2 cyrus-sasl openssl libidn gdbm curl openldap-client nghttp2 brotli ca-certificates git
         update-ca-certificates
