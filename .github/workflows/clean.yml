@@ -12,4 +12,4 @@ jobs:
           repo: bobbintb/slackware_packages
           branch: main
           run_conclusions: |
-            completed
+            COMPLETED
