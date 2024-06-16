@@ -14,11 +14,11 @@ jobs:
         sed -i "s/^DIALOG=.*/DIALOG=off/" "$CONF_FILE"
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
-        find / -name ca-certificates.crt
         slackpkg update <<< y
         slackpkg install dcron expat zlib libssh2 cyrus-sasl openssl libidn gdbm openldap-client nghttp2 brotli curl ca-certificates git
         update-ca-certificates
         ls /etc/ssl/certs/
+        git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
