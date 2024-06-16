@@ -42,7 +42,8 @@ jobs:
         python3 \
         zlib
         update-ca-certificates
-        echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a /etc/curlrc
+        echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a $HOME/.curlrc
+        cat $HOME/.curlrc
         git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
