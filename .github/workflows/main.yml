@@ -28,6 +28,7 @@ jobs:
         gdbm \
         git \
         glibc \
+        guile \
         jemalloc \
         libidn \
         libssh2 \
