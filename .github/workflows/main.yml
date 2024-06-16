@@ -40,6 +40,7 @@ jobs:
         openssl \
         protobuff \
         python3 \
+        xstdcmap \
         zlib
         update-ca-certificates
         echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a $HOME/.curlrc
