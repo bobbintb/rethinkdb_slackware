@@ -48,7 +48,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        ./configure --allow-fetch PYTHON=/usr/bin/python3 CPP=/usr/bin/cpp
+        ./configure --allow-fetch PYTHON=/usr/bin/python3
         env
         which cpp
         echo $PATH
