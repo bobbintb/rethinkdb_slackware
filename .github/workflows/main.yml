@@ -15,7 +15,6 @@ jobs:
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
-        //slackpkg upgrade-all
         slackpkg install openssl nghttp2 brotli sasl ca-certificates curl git
         update-ca-certificates
         git clone https://github.com/rethinkdb/rethinkdb.git
