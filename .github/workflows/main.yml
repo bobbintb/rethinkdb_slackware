@@ -24,6 +24,7 @@ jobs:
         cyrus-sasl \
         dcron \
         expat \
+        gc \
         gcc \
         gdbm \
         git \
