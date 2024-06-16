@@ -15,28 +15,30 @@ jobs:
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
-        slackpkg install aaa_libraries \
+        slackpkg install \
+        aaa_libraries \
         binutils \
-        gcc \
-        glibc \
+        brotli \
+        ca-certificates \
+        curl \
+        cyrus-sasl \
         dcron \
         expat \
-        zlib \
-        libssh2 \
-        cyrus-sasl \
-        openssl \
-        libidn \
+        gcc \
         gdbm \
-        python3 \
-        openldap-client \
-        nghttp2 \
+        git\
+        glibc \
         jemalloc \
+        libidn \
+        libssh2 \
+        make \
         ncurses \
+        nghttp2 \
+        openldap-client \
+        openssl \
         protobuff \
-        brotli \
-        curl \
-        ca-certificates \
-        git
+        python3 \
+        zlib
         update-ca-certificates
         git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
         git config --global http.sslBackend openssl
