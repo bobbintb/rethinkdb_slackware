@@ -8,5 +8,6 @@ jobs:
       - name: Delete workflow runs
         uses: dmvict/clean-workflow-runs@v1.0.0
         with:
+          repo: bobbintb/slackware_packages
           run_conclusions: |
             failed
