@@ -16,7 +16,7 @@ jobs:
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         find / -name run-parts
         slackpkg update <<< y
-        slackpkg install dcron expat zlib libssh2 cyrus-sasl openssl libidn gdbm curl openldap-client nghttp2 brotli ca-certificates git
+        slackpkg install dcron expat zlib libssh2 cyrus-sasl openssl libidn gdbm openldap-client nghttp2 brotli curl ca-certificates git
         update-ca-certificates
         ls /etc/ssl/certs/
         git clone https://github.com/rethinkdb/rethinkdb.git
