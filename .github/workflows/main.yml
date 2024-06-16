@@ -24,8 +24,9 @@ jobs:
         cyrus-sasl \
         dcron \
         expat \
-        gc \
-        gcc \
+        gc-8 \
+        gcc-11 \
+        gcc-g++ \
         gdbm \
         git \
         glibc \
@@ -49,7 +50,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        export CXXFLAGS="-std=c++11"
+        find / -name libstdc++*
         env
         ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=gcc
         which cpp
