@@ -34,6 +34,7 @@ jobs:
         jemalloc \
         libidn \
         libssh2 \
+        llvm \
         make \
         ncurses \
         nghttp2 \
