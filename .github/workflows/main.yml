@@ -71,3 +71,13 @@ jobs:
         
     - name: Run your command
       run: ls
+    - name: Checkout repository
+      uses: actions/checkout@v4.1.6
+      with:
+        token: ${{ secrets.PAT }}
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: Armando
+        author_email: bobbintb@gmail.com
+        message: ${{ github.event.head_commit.message }}
