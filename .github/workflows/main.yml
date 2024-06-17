@@ -25,6 +25,7 @@ jobs:
         curl \
         cyrus-sasl \
         dcron \
+        elfutils \
         expat \
         flex \
         gc-8 \
