@@ -17,6 +17,7 @@ jobs:
         slackpkg install \
         aaa_libraries \
         binutils \
+        boost \
         brotli \
         ca-certificates \
         curl \
