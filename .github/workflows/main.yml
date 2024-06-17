@@ -16,6 +16,8 @@ jobs:
         slackpkg update <<< y
         slackpkg install \
         aaa_libraries \
+        automake \
+        autoconf \
         binutils \
         boost \
         brotli \
