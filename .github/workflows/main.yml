@@ -32,6 +32,7 @@ jobs:
         glibc \
         guile \
         jemalloc \
+        llvm-13 \
         libidn \
         libssh2 \
         make \
