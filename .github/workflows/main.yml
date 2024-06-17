@@ -42,6 +42,7 @@ jobs:
         protobuf \
         python3 \
         quickjs \
+        re2 \
         zlib
         # wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
         wget --no-check-certificate http://www.slackel.gr/repo/x86_64/current/slackel/extra/protobuf3-3.20.1-x86_64-1dj.txz
