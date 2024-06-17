@@ -66,6 +66,8 @@ jobs:
         ./configure --allow-fetch PYTHON=/usr/bin/python3
         make -j4
         make install
+        pwd
+        ls build/release/assets/
         
     - name: Run your command
       run: ls
