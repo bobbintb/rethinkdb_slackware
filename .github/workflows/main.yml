@@ -39,6 +39,7 @@ jobs:
         kernel-headers \
         libidn \
         libssh2 \
+        m4 \
         make \
         ncurses \
         nghttp2 \
