@@ -60,7 +60,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        ./configure --allow-fetch PYTHON=/usr/bin/python3 AR=/usr/bin/ar
+        ./configure --allow-fetch PYTHON=/usr/bin/python3
         make -j4
         cat ./build/external/protobuf_3.19.4_install.log
         
