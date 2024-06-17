@@ -41,7 +41,7 @@ jobs:
         openssl \
         python3 \
         zlib
-        wget https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
+        wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
         installpkg protobuf-27.1-x86_64-1.txz
         update-ca-certificates
         echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a $HOME/.curlrc
