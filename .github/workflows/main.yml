@@ -5,7 +5,7 @@ jobs:
   slackware-job:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/lanjelin/slackbuilder:latest
+      image: ghcr.io/erikkugel/slackware64:latest
     steps:
     - name: Update and install packages
       run: |
