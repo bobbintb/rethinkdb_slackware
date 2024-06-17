@@ -32,6 +32,7 @@ jobs:
         glibc \
         guile \
         jemalloc \
+        kernel-headers \
         libidn \
         libssh2 \
         make \
