@@ -55,7 +55,7 @@ jobs:
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
         ./configure --allow-fetch PYTHON=/usr/bin/python3
-        make
+        make -j4
         cat ./build/external/protobuf_3.19.4_install.log
         
     - name: Run your command
