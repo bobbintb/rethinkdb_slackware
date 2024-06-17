@@ -64,7 +64,7 @@ jobs:
         cd rethinkdb
         ./configure --allow-fetch PYTHON=/usr/bin/python3
         make -j4
-        cat ./build/external/protobuf_3.19.4_install.log
+        make install
         
     - name: Run your command
       run: ls
