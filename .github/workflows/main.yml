@@ -52,7 +52,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=g++
+        ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=clang
         make
         
     - name: Run your command
