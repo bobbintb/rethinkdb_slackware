@@ -5,7 +5,7 @@ jobs:
   slackware-job:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/erikkugel/slackware64:latest
+      image: ghcr.io/aclemons/slackware:current
     steps:
     - name: Update and install packages
       run: |
@@ -41,6 +41,7 @@ jobs:
         openssl \
         protobuf \
         python3 \
+        quickjs \
         zlib
         # wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
         wget --no-check-certificate http://www.slackel.gr/repo/x86_64/current/slackel/extra/protobuf3-3.20.1-x86_64-1dj.txz
