@@ -38,13 +38,13 @@ jobs:
         nghttp2 \
         openldap-client \
         openssl \
+        protobuf \
         python3 \
         zlib
-        slackpkg remove protobuf
-        wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
+        # wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
         wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/d/llvm-18.1.7-x86_64-1.txz
         installpkg llvm-18.1.7-x86_64-1.txz
-        installpkg protobuf-27.1-x86_64-1.txz
+        # installpkg protobuf-27.1-x86_64-1.txz
         update-ca-certificates
         echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a $HOME/.curlrc
     - name: Clone and make
