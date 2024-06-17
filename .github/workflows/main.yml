@@ -45,16 +45,13 @@ jobs:
         installpkg protobuf-27.1-x86_64-1.txz
         update-ca-certificates
         echo "cacert = /etc/ssl/certs/ca-certificates.crt" | tee -a $HOME/.curlrc
-        cat $HOME/.curlrc
+    - name: Clone and make
+      run: |
         git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        find / -name libstdc++*
-        env
         ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=clang
-        which cpp
-        echo $PATH
         make
         
     - name: Run your command
