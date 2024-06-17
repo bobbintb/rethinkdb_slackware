@@ -40,6 +40,7 @@ jobs:
         openssl \
         python3 \
         zlib
+        slackpkg remove protobuf
         wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/l/protobuf-27.1-x86_64-1.txz
         wget --no-check-certificate https://slackware.uk/slackware/slackware64-current/slackware64/d/llvm-18.1.7-x86_64-1.txz
         installpkg llvm-18.1.7-x86_64-1.txz
@@ -52,7 +53,7 @@ jobs:
         git config --global http.sslBackend openssl
         git clone https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
-        ./configure --allow-fetch PYTHON=/usr/bin/python3 CXX=clang++
+        ./configure --allow-fetch PYTHON=/usr/bin/python3
         make
         
     - name: Run your command
