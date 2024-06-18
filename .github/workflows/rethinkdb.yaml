@@ -23,6 +23,22 @@ jobs:
         make -j4
         make install
         pwd
-        ls build/release/assets/
     - name: Run your command
-      run: ls
+      run: |
+        cd ..
+        mkdir -p package/usr/local/bin
+        cp build/release/rethinkdb package/usr/local/bin
+        
+        mkdir -p package/usr/local/share/man/man1
+        cp build/release/assets/rethinkdb.1.gz package/usr/local/share/man/man1
+        
+        mkdir -p package/usr/local/share/doc/rethinkdb/copyright
+        cp ./packaging/assets/docs/LICENSE package/usr/local/share/doc/rethinkdb/copyright
+        
+        mkdir -p package/usr/local/etc/init.d
+        cp ./packaging/assets/init/rethinkdb package/usr/local/etc/init.d
+        
+        mkdir -p package/usr/local/var/lib/rethinkdb/instances.d
+        
+        cp /usr/local/etc/rethinkdb/default.conf.sample package/usr/local/etc/rethinkdb/default.conf.sample
+        ls -ls ./package
