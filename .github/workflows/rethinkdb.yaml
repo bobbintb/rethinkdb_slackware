@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: Update and install packages
       run: |
+        echo "================================= Updating packages ================================="
+        VERSION="v2.4.4"
         CONF_FILE="/etc/slackpkg/slackpkg.conf"
         sed -i "s/^DIALOG=.*/DIALOG=off/" "$CONF_FILE"
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
@@ -17,10 +19,14 @@ jobs:
         update-ca-certificates
     - name: Clone and make
       run: |
-        git clone https://github.com/rethinkdb/rethinkdb.git
+        echo "================================= Cloning from git ================================="
+        git clone --branch $VERSION https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
+        echo "================================= Setting configuration ================================="
         ./configure --allow-fetch PYTHON=/usr/bin/python3
+        echo "================================= Making ================================="
         make -j4
+        echo "================================= Installing ================================="
         make install
         pwd
     - name: Prep package
@@ -28,6 +34,7 @@ jobs:
         cd ./rethinkdb
         pwd
         ls -ls
+        echo "================================= Creating directory structure ================================="
         mkdir -p package/usr/local/bin
         mkdir -p package/usr/local/share/man/man1
         mkdir -p package/usr/local/share/doc/rethinkdb/copyright
@@ -36,6 +43,7 @@ jobs:
         mkdir -p package/usr/local/etc/rethinkdb
         mkdir -p package/install
         ls -ls
+        echo "================================= Copying files ================================="
         cp ./build/release/rethinkdb ./package/usr/local/bin
         cp ./build/release/assets/rethinkdb.1.gz ./package/usr/local/share/man/man1
         cp ./packaging/assets/docs/LICENSE ./package/usr/local/share/doc/rethinkdb/copyright
@@ -49,4 +57,7 @@ jobs:
         chmod +x slackdesc
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
         ls -ls ./package
+        echo "================================= Creating package ${VERSION} ================================="
+        cd ./package
+        makepkg ../rethinkdb.txz
 
