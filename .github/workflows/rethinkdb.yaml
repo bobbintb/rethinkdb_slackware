@@ -10,22 +10,10 @@ env:
   URL: "https://rethinkdb.com"
 jobs:
   slackware-job:
-    runs-on: ubuntu-latest
-    container: spaceinvaderone/auto_slack_pack
+    include: ./.github/workflows/slackware_template.yaml
     steps:
-    - name: Update and install packages
+    - name: Make
       run: |
-        echo "================================= Updating packages ================================="
-        CONF_FILE="/etc/slackpkg/slackpkg.conf"
-        sed -i "s/^DIALOG=.*/DIALOG=off/" "$CONF_FILE"
-        sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
-        sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
-        slackpkg update <<< y
-        slackpkg install ca-certificates
-    - name: Clone and make
-      run: |
-        echo "================================= Cloning ${VERSION} from git ================================="
-        git clone --branch $VERSION --depth 1 $GIT_URL
         cd rethinkdb
         echo "================================= Setting configuration ================================="
         ./configure --allow-fetch PYTHON=/usr/bin/python3
