@@ -25,7 +25,6 @@ jobs:
         pwd
     - name: Prep package
       run: |
-        cd ..
         mkdir -p package/usr/local/bin
         cp build/release/rethinkdb package/usr/local/bin
         mkdir -p package/usr/local/share/man/man1
@@ -43,6 +42,6 @@ jobs:
         URL="https://rethinkdb.com"
         wget https://master.dl.sourceforge.net/project/slack-desc/slackdesc-0.03/slackdesc
         chmod +x slackdesc
-        ./slackdesc $NAME $SHORT_DESC $LONG_DESC $URL > ./package/install/slack-desc
+        ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
         ls -ls ./package
 
