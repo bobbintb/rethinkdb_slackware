@@ -54,7 +54,6 @@ jobs:
         cp ./packaging/assets/docs/LICENSE ./package/usr/local/share/doc/rethinkdb/copyright
         cp ./packaging/assets/init/rethinkdb ./package/usr/local/etc/init.d
         cp /usr/local/etc/rethinkdb/default.conf.sample ./package/usr/local/etc/rethinkdb/default.conf.sample
-        
         wget https://master.dl.sourceforge.net/project/slack-desc/slackdesc-0.03/slackdesc
         chmod +x slackdesc
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
@@ -62,4 +61,9 @@ jobs:
         echo "================================= Creating package ${VERSION} ================================="
         cd ./package
         makepkg ../rethinkdb.txz
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
+    - name: Push
+      run: |
+        ls -ls
 
