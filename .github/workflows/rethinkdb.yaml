@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4.1.7
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
