@@ -6,10 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
+    - name: Setting variables
+      run: |
+        VERSION="v2.4.4" >> $GITHUB_ENV
+        NAME="rethinkdb" >> $GITHUB_ENV
+        SHORT_DESC="A scalable database built for realtime applications." >> $GITHUB_ENV
+        LONG_DESC="RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort." >> $GITHUB_ENV
+        URL="https://rethinkdb.com" >> $GITHUB_ENV
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
-        VERSION="v2.4.4"
         CONF_FILE="/etc/slackpkg/slackpkg.conf"
         sed -i "s/^DIALOG=.*/DIALOG=off/" "$CONF_FILE"
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
@@ -48,10 +54,7 @@ jobs:
         cp ./packaging/assets/docs/LICENSE ./package/usr/local/share/doc/rethinkdb/copyright
         cp ./packaging/assets/init/rethinkdb ./package/usr/local/etc/init.d
         cp /usr/local/etc/rethinkdb/default.conf.sample ./package/usr/local/etc/rethinkdb/default.conf.sample
-        NAME="rethinkdb"
-        SHORT_DESC="A scalable database built for realtime applications."
-        LONG_DESC="RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
-        URL="https://rethinkdb.com"
+        
         wget https://master.dl.sourceforge.net/project/slack-desc/slackdesc-0.03/slackdesc
         chmod +x slackdesc
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
