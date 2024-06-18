@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/aclemons/slackware:latest
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4.1.6
     - name: Update and install packages
       run: |
         CONF_FILE="/etc/slackpkg/slackpkg.conf"
@@ -67,13 +69,8 @@ jobs:
         make install
         pwd
         ls build/release/assets/
-        
     - name: Run your command
       run: ls
-    - name: Checkout repository
-      uses: actions/checkout@v4.1.6
-      with:
-        token: ${{ secrets.PAT }}
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
