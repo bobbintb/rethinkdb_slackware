@@ -26,15 +26,15 @@ jobs:
     - name: Prep package
       run: |
         mkdir -p package/usr/local/bin
-        cp build/release/rethinkdb package/usr/local/bin
+        cp ./build/release/rethinkdb ./package/usr/local/bin
         mkdir -p package/usr/local/share/man/man1
-        cp build/release/assets/rethinkdb.1.gz package/usr/local/share/man/man1
+        cp ./build/release/assets/rethinkdb.1.gz ./package/usr/local/share/man/man1
         mkdir -p package/usr/local/share/doc/rethinkdb/copyright
-        cp ./packaging/assets/docs/LICENSE package/usr/local/share/doc/rethinkdb/copyright
+        cp ./packaging/assets/docs/LICENSE ./package/usr/local/share/doc/rethinkdb/copyright
         mkdir -p package/usr/local/etc/init.d
-        cp ./packaging/assets/init/rethinkdb package/usr/local/etc/init.d
+        cp ./packaging/assets/init/rethinkdb ./package/usr/local/etc/init.d
         mkdir -p package/usr/local/var/lib/rethinkdb/instances.d
-        cp /usr/local/etc/rethinkdb/default.conf.sample package/usr/local/etc/rethinkdb/default.conf.sample
+        cp /usr/local/etc/rethinkdb/default.conf.sample ./package/usr/local/etc/rethinkdb/default.conf.sample
         mkdir -p package/install
         NAME="rethinkdb"
         SHORT_DESC="A scalable database built for realtime applications."
