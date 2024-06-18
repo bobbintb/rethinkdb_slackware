@@ -16,10 +16,9 @@ jobs:
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
         slackpkg install ca-certificates
-        update-ca-certificates
     - name: Clone and make
       run: |
-        echo "================================= Cloning from git ================================="
+        echo "================================= Cloning ${VERSION} from git ================================="
         git clone --branch $VERSION https://github.com/rethinkdb/rethinkdb.git
         cd rethinkdb
         echo "================================= Setting configuration ================================="
