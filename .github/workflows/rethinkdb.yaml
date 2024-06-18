@@ -1,18 +1,17 @@
 name: Build rethinkdb
 on:
   workflow_dispatch:
+env:
+  VERSION: "v2.4.4"
+  NAME: "rethinkdb"
+  SHORT_DESC: "A scalable database built for realtime applications."
+  LONG_DESC: "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
+  URL: "https://rethinkdb.com"
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
-    - name: Setting variables
-      run: |
-        echo 'VERSION="v2.4.4"' >> $GITHUB_ENV
-        echo 'NAME="rethinkdb"' >> $GITHUB_ENV
-        echo 'SHORT_DESC="A scalable database built for realtime applications."' >> $GITHUB_ENV
-        echo 'LONG_DESC="RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."' >> $GITHUB_ENV
-        echo 'URL="https://rethinkdb.com"' >> $GITHUB_ENV
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
