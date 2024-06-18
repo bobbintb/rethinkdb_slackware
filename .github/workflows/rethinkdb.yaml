@@ -29,17 +29,18 @@ jobs:
         pwd
         ls -ls
         mkdir -p package/usr/local/bin
+        mkdir -p package/usr/local/share/man/man1
+        mkdir -p package/usr/local/share/doc/rethinkdb/copyright
+        mkdir -p package/usr/local/etc/init.d
+        mkdir -p package/usr/local/var/lib/rethinkdb/instances.d
+        mkdir -p package/usr/local/etc/rethinkdb
+        mkdir -p package/install
         ls -ls
         cp ./build/release/rethinkdb ./package/usr/local/bin
-        mkdir -p package/usr/local/share/man/man1
         cp ./build/release/assets/rethinkdb.1.gz ./package/usr/local/share/man/man1
-        mkdir -p package/usr/local/share/doc/rethinkdb/copyright
         cp ./packaging/assets/docs/LICENSE ./package/usr/local/share/doc/rethinkdb/copyright
-        mkdir -p package/usr/local/etc/init.d
         cp ./packaging/assets/init/rethinkdb ./package/usr/local/etc/init.d
-        mkdir -p package/usr/local/var/lib/rethinkdb/instances.d
         cp /usr/local/etc/rethinkdb/default.conf.sample ./package/usr/local/etc/rethinkdb/default.conf.sample
-        mkdir -p package/install
         NAME="rethinkdb"
         SHORT_DESC="A scalable database built for realtime applications."
         LONG_DESC="RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
