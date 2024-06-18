@@ -77,4 +77,4 @@ jobs:
         author_name: Armando
         author_email: bobbintb@gmail.com
         message: ${{ github.event.head_commit.message }}
-        token: ${{ secrets.PAT }}
+        github_token: ${{ secrets.PAT }}
