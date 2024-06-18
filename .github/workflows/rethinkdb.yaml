@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 env:
   VERSION: "v2.4.4"
+  GIT_URL: "https://github.com/rethinkdb/rethinkdb.git"
   NAME: "rethinkdb"
   SHORT_DESC: "A scalable database built for realtime applications."
   LONG_DESC: "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
@@ -24,7 +25,7 @@ jobs:
     - name: Clone and make
       run: |
         echo "================================= Cloning ${VERSION} from git ================================="
-        git clone --branch $VERSION https://github.com/rethinkdb/rethinkdb.git
+        git clone --branch $VERSION --depth 1 $GIT_URL
         cd rethinkdb
         echo "================================= Setting configuration ================================="
         ./configure --allow-fetch PYTHON=/usr/bin/python3
