@@ -25,6 +25,7 @@ jobs:
         pwd
     - name: Prep package
       run: |
+        pwd
         mkdir -p package/usr/local/bin
         cp ./build/release/rethinkdb ./package/usr/local/bin
         mkdir -p package/usr/local/share/man/man1
