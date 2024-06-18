@@ -1,4 +1,4 @@
-name: Run in Slackware Container
+name: Build rethinkdb
 on:
   workflow_dispatch:
 jobs:
