@@ -1,4 +1,6 @@
 name: Build environment
+on:
+  workflow_call:
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
