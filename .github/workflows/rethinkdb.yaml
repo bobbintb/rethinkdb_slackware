@@ -61,12 +61,15 @@ jobs:
         echo "================================= Creating package ${VERSION} ================================="
         cd ./package
         makepkg ../rethinkdb.txz
+    - name: Move package
+      run: |
+        mkdir release
+        mv ./rethinkdb/rethinkdb.txz ./release
     - name: Checkout
       uses: actions/checkout@v4.1.7
-    - name: Prep package
+    - name: Move package
       run: |
-        pwd
-        ls -ls
+        mv ./release/rethinkdb.txz ./
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
