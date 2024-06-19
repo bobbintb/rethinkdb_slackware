@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
+      with:
+        token: ${{ secrets.PAT }}
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
@@ -71,10 +75,6 @@ jobs:
         cd ..
         mkdir release
         mv ./slackware_packages/rethinkdb/rethinkdb.txz ./release
-    - name: Checkout
-      uses: actions/checkout@v4.1.7
-      with:
-        token: ${{ secrets.PAT }}
     - name: Move package
       run: |
         mv ../release/rethinkdb.txz ./
