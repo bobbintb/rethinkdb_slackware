@@ -85,6 +85,5 @@ jobs:
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
-        token: ${{ GH_TOKEN }}
         add: '*.txz'
 
