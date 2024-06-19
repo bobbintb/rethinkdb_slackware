@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4.1.7
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
@@ -28,6 +26,8 @@ jobs:
         wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
         wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/gtest-1.11.0-x86_64-2gds.txz
         installpkg *.txz
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
     - name: Clone and make
       run: |
         echo "================================= Cloning ${VERSION} from git ================================="
