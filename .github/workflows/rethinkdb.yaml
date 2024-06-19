@@ -39,12 +39,9 @@ jobs:
         make -j4
         echo "================================= Installing ================================="
         make install
-        pwd
     - name: Prep package
       run: |
         cd ./rethinkdb
-        pwd
-        ls -ls
         echo "================================= Creating directory structure ================================="
         mkdir -p package/usr/local/bin
         mkdir -p package/usr/local/share/man/man1
@@ -53,7 +50,6 @@ jobs:
         mkdir -p package/usr/local/var/lib/rethinkdb/instances.d
         mkdir -p package/usr/local/etc/rethinkdb
         mkdir -p package/install
-        ls -ls
         echo "================================= Copying files ================================="
         cp ./build/release/rethinkdb ./package/usr/local/bin
         cp ./build/release/assets/rethinkdb.1.gz ./package/usr/local/share/man/man1
@@ -63,12 +59,9 @@ jobs:
         wget https://master.dl.sourceforge.net/project/slack-desc/slackdesc-0.03/slackdesc
         chmod +x slackdesc
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
-        ls -ls ./package
         echo "================================= Creating package ${VERSION} ================================="
         cd ./package
         makepkg ../rethinkdb.txz
-        pwd
-        ls -ls
     - name: Move package
       run: |
         cd ..
@@ -77,8 +70,6 @@ jobs:
     - name: Move package
       run: |
         mv ../release/rethinkdb.txz ./
-        pwd
-        ls -ls
         git config --global --add safe.directory /__w/slackware_packages/slackware_packages
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
