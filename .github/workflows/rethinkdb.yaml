@@ -65,13 +65,14 @@ jobs:
         ls -ls
     - name: Move package
       run: |
+        cd ..
         mkdir release
-        mv ./rethinkdb/rethinkdb.txz ./release
+        mv ./slackware_packages/rethinkdb/rethinkdb.txz ./release
     - name: Checkout
       uses: actions/checkout@v4.1.7
     - name: Move package
       run: |
-        mv ./release/rethinkdb.txz ./
+        mv ../release/rethinkdb.txz ./
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
