@@ -21,7 +21,10 @@ jobs:
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
-        slackpkg install ca-certificates
+        slackpkg install ca-certificates jemalloc re2c
+        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
+        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/gtest-1.11.0-x86_64-2gds.txz
+        installpkg *.txz
     - name: Clone and make
       run: |
         echo "================================= Cloning ${VERSION} from git ================================="
