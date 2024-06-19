@@ -73,6 +73,8 @@ jobs:
         mv ./slackware_packages/rethinkdb/rethinkdb.txz ./release
     - name: Checkout
       uses: actions/checkout@v4.1.7
+      with:
+        token: ${{ secrets.PAT }}
     - name: Move package
       run: |
         mv ../release/rethinkdb.txz ./
