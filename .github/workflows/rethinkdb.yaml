@@ -61,6 +61,8 @@ jobs:
         echo "================================= Creating package ${VERSION} ================================="
         cd ./package
         makepkg ../rethinkdb.txz
+        pwd
+        ls -ls
     - name: Move package
       run: |
         mkdir release
