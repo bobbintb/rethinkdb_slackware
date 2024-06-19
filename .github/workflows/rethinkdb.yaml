@@ -8,6 +8,7 @@ env:
   SHORT_DESC: "A scalable database built for realtime applications."
   LONG_DESC: "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
   URL: "https://rethinkdb.com"
+  GH_TOKEN: ${{ secrets.PAT }}
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
@@ -16,7 +17,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4.1.7
       with:
-        token: ${{ secrets.PAT }}
+        token: ${{ GH_TOKEN }}
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
@@ -84,6 +85,6 @@ jobs:
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
-        token: ${{ secrets.PAT }}
+        token: ${{ GH_TOKEN }}
         add: '*.txz'
 
