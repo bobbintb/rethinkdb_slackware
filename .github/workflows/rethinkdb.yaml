@@ -66,10 +66,10 @@ jobs:
       run: |
         cd ..
         mkdir release
-        mv ./slackware_packages/rethinkdb/rethinkdb.txz ./release
+        mv ./slackware_packages/rethinkdb/*.txz ./release
     - name: Move package
       run: |
-        mv ../release/rethinkdb.txz ./
+        mv ../release/*.txz ./
         git config --global --add safe.directory /__w/slackware_packages/slackware_packages
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
