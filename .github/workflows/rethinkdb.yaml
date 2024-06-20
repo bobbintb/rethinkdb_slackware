@@ -2,7 +2,7 @@ name: Build rethinkdb
 on:
   workflow_dispatch:
 env:
-  VERSION: "v2.4.4"
+  VERSION: "2.4.4"
   GIT_URL: "https://github.com/rethinkdb/rethinkdb.git"
   NAME: "rethinkdb"
   SHORT_DESC: "A scalable database built for realtime applications."
@@ -59,9 +59,10 @@ jobs:
         wget https://master.dl.sourceforge.net/project/slack-desc/slackdesc-0.03/slackdesc
         chmod +x slackdesc
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
-        echo "================================= Creating package ${VERSION} ================================="
+        echo "================================= Creating package v${VERSION} ================================="
         cd ./package
-        makepkg ../rethinkdb.txz
+        protobuf-3.19.6-x86_64-1gds.txz
+        makepkg ../rethinkdb-${VERSION}-x86_64.txz
     - name: Move package
       run: |
         cd ..
