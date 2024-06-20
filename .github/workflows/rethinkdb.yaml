@@ -31,7 +31,7 @@ jobs:
     - name: Clone and make
       run: |
         echo "================================= Cloning ${VERSION} from git ================================="
-        git clone --branch $VERSION --depth 1 $GIT_URL
+        git clone --branch v${VERSION} --depth 1 $GIT_URL
         cd rethinkdb
         echo "================================= Setting configuration ================================="
         ./configure --allow-fetch PYTHON=/usr/bin/python3
@@ -61,7 +61,6 @@ jobs:
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
         echo "================================= Creating package v${VERSION} ================================="
         cd ./package
-        protobuf-3.19.6-x86_64-1gds.txz
         makepkg ../rethinkdb-${VERSION}-x86_64.txz
     - name: Move package
       run: |
