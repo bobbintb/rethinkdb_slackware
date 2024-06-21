@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
+    - name: delete me later
+      run: update-ca-certificates && git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
     - name: Checkout
       uses: actions/checkout@v4.1.7
     - name: Update and install packages
