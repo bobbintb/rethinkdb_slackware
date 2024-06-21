@@ -9,7 +9,6 @@ env:
   LONG_DESC: "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
   URL: "https://rethinkdb.com"
   SSL_CERT_FILE: "/etc/ssl/certs/ca-certificates.crt"
-  GITHUB_TOKEN: ${{ secrets.releases }}
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
@@ -77,7 +76,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        token: ${{ secrets.releases }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: ${{ env.VERSION }}
         make_latest: true
         files: |
