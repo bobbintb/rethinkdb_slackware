@@ -71,8 +71,7 @@ jobs:
       run: |
         mv ../release/*.txz ./
         git config --global --add safe.directory /__w/slackware_packages/slackware_packages
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        add: '*.txz'
-
+        files: *.txz
