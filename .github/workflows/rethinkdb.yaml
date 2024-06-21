@@ -12,7 +12,7 @@ env:
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
-    container: spaceinvaderone/auto_slack_pack@latest
+    container: spaceinvaderone/auto_slack_pack:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4.1.7
