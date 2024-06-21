@@ -27,6 +27,7 @@ jobs:
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
         slackpkg install gtest re2 jemalloc
+        export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
         wget --no-check-certificate https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
         installpkg *.txz
     - name: Clone and make
