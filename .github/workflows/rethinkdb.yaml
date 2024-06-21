@@ -9,14 +9,11 @@ env:
   LONG_DESC: "RethinkDB is the first open-source scalable database built for realtime applications. It exposes a new database access model, in which the developer can tell the database to continuously push updated query results to applications without polling for changes. RethinkDB allows developers to build scalable realtime apps in a fraction of the time with less effort."
   URL: "https://rethinkdb.com"
   GH_TOKEN: ${{ secrets.PAT }}
-  SSL_CERT_FILE: "/etc/ssl/certs/ca-certificates.crt"
 jobs:
   slackware-job:
     runs-on: ubuntu-latest
-    container: spaceinvaderone/auto_slack_pack:latest
+    container: spaceinvaderone/auto_slack_pack
     steps:
-    - name: delete me later
-      run: update-ca-certificates && git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
     - name: Checkout
       uses: actions/checkout@v4.1.7
     - name: Update and install packages
@@ -27,9 +24,9 @@ jobs:
         sed -i "s/^BATCH=.*/BATCH=on/" "$CONF_FILE"
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
-        slackpkg install gtest re2 jemalloc
-        export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-        wget --no-check-certificate https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
+        slackpkg install ca-certificates jemalloc re2c
+        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
+        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/gtest-1.11.0-x86_64-2gds.txz
         installpkg *.txz
     - name: Clone and make
       run: |
@@ -77,5 +74,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
+        make_latest: true
         files: |
           *.txz
