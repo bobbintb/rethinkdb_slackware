@@ -27,8 +27,7 @@ jobs:
         sed -i "s/^DEFAULT_ANSWER=.*/DEFAULT_ANSWER=y/" "$CONF_FILE"
         slackpkg update <<< y
         slackpkg install ca-certificates jemalloc re2c
-        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/protobuf-3.19.6-x86_64-1gds.txz
-        wget https://ftp.sotirov-bg.net/pub/contrib/slackware/packages/slackware64-15.0/gtest-1.11.0-x86_64-2gds.txz
+        wget http://www.slackel.gr/repo/x86_64/current/slackel/extra/protobuf3-3.20.1-x86_64-1dj.txz
         installpkg *.txz
     - name: Clone and make
       run: |
