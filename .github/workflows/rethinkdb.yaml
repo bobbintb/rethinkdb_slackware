@@ -11,6 +11,7 @@ env:
   SSL_CERT_FILE: "/etc/ssl/certs/ca-certificates.crt"
 jobs:
   slackware-job:
+    permissions: write-all
     runs-on: ubuntu-latest
     container: spaceinvaderone/auto_slack_pack
     steps:
