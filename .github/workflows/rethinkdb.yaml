@@ -65,7 +65,7 @@ jobs:
         ./slackdesc "${NAME}" "${SHORT_DESC}" "${LONG_DESC}" "${URL}" > ./package/install/slack-desc
         echo "================================= Creating package v${VERSION} ================================="
         cd ./package
-        makepkg ../rethinkdb-${VERSION}-x86_64.txz
+        makepkg ../rethinkdb-x86_64.txz
     - name: Move package
       run: |
         cd ..
