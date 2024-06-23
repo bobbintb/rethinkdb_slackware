@@ -18,7 +18,7 @@ jobs:
     - name: delete me later
       run: update-ca-certificates && git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
     - name: Checkout
-      uses: actions/checkout@v4.1.7
+      uses: actions/checkout@v4
     - name: Update and install packages
       run: |
         echo "================================= Updating packages ================================="
