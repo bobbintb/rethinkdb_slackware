@@ -11,5 +11,3 @@ jobs:
           token: ${{ github.token }}
           repo: bobbintb/rethinkdb_slackware
           branch: main
-          run_conclusions: |
-            COMPLETED
