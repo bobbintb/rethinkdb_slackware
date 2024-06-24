@@ -3,13 +3,12 @@ on:
   workflow_dispatch:
 jobs:
   delete_runs:
-    permissions: write-all, read-all
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
         uses: dmvict/clean-workflow-runs@v1
         with:
-          token: ${{ github.token }}
           repo: bobbintb/rethinkdb_slackware
           branch: main
           run_conclusions: |
